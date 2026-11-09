@@ -7,15 +7,31 @@ function contar(){
         alert('[ERRO] Faltam dados!')
      }
      else{
-        res.innerHTML = 'Contando:'
+       res.innerHTML = 'Contando:'
         let i = Number(ini.value)
         let f = Number(fim.value)
         let p = Number(passo.value)
-
-        for (let c = i; c <= f; c =+ p){
-            res.innerHTML += `${c} \u{1F449}`
+        if(i < f){
+            for (let c = i; c <= f; c += p){
+            res.innerHTML += `${c} `
+            if(c < f){
+                res.innerHTML += `\u{1F449}`
+            }
+            else{
+                res.innerHTML += `\u{1f3c1}`
+            }
+         }
+        }else{
+            for(let c = i; c >= f; c -= p){
+                res.innerHTML += `${c} `
+                if(c > f){
+                    res.innerHTML += `\u{1F449}`
+                }
+                else{
+                    res.innerHTML += `\u{1f3c1}`
+                }
+            }
+            
         }
-        res.innerHTML += `\u{1f3c1}`
-        
     }
-}
+} 
